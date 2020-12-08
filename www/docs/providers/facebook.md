@@ -19,7 +19,8 @@ import Providers from `next-auth/providers`
 providers: [
   Providers.Facebook({
     clientId: process.env.FACEBOOK_CLIENT_ID,
-    clientSecret: process.env.FACEBOOK_CLIENT_SECRET
+    clientSecret: process.env.FACEBOOK_CLIENT_SECRET,
+    scope: ['email', 'instagram_basic', 'pages_show_list']
   })
 }
 ...
@@ -31,4 +32,8 @@ Production applications cannot use localhost URLs to sign in with Facebook. You 
 
 :::tip
 Email address may not be returned for accounts created on mobile.
+:::
+
+:::tip
+When using an array in scope, be sure to include 'email'.
 :::
